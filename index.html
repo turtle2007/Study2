@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8" http-equiv="Content-Type" content="text/html;">
 <title>game</title>
   
@@ -9,12 +10,14 @@
 <script type="text/javascript" language="javascript" src="js/time.js"></script>
 <script type="text/javascript" language="javascript" src="js/lastPages.js"></script>
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<!-- <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script> -->
+
+
 
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 <link rel="stylesheet" href="css/style.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
 </head>
 
 <body>
@@ -22,11 +25,11 @@
     <script type="text/javascript">
     var game = new Object();
     game.trialCount = 0;
-    // noteCount: 3,
+    // game.noteCount = [3, 4, 5];
     game.noteCount = [];//for random level
     game.levelCount = 0; //for random level
     game.possibilities = ['c1','c2', 'c3', 'c4', 'c5'];
-    game.currentGame = [];
+    game.currentGame = []; //store how many notes inside: 3, 4, and 5.
     game.player = [];
     game.userID = null;
     game.condition = ['con1', 'con2', 'con3', 'con4', 'con5', 'con6'];
@@ -79,50 +82,54 @@
       ['c2','c1','c3','c5','c4']);
 
     </script>
-      <audio id="aNotes">
-        <!-- <source src="music_notes/a.mp3" type="audio/mp3"></source>
-        <source src="music_notes/a.ogg" type="audio/ogg"></source>
-        <source src="music_notes/a.wav" type="audio/wav"></source> -->
+      <audio id="aNotes" preload="auto">
+        <!-- <source src="music_notes/a.mp3" type="audio/mp3">
+        <source src="music_notes/a.ogg" type="audio/ogg">
+        <source src="music_notes/a.wav" type="audio/wav"> -->
 
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/a_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/a_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/a_note.wav" type="audio/wav"></source>
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/a_note.mp3" type="audio/mp3">
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/a_note.ogg" type="audio/ogg">
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/a_note.wav" type="audio/wav">
       </audio>
-      <audio id="cNotes">
+
+      <audio id="cNotes" preload="auto">
         <!-- <source src="music_notes/c.mp3" type="audio/mp3"></source>
         <source src="music_notes/c.ogg" type="audio/ogg"></source>
         <source src="music_notes/c.wav" type="audio/wav"></source> -->
 
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/c_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/c_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/c_note.wav" type="audio/wav"></source>        
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/c_note.mp3" type="audio/mp3">
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/c_note.ogg" type="audio/ogg">
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/c_note.wav" type="audio/wav">    
       </audio>
-      <audio id="dNotes">
+
+      <audio id="dNotes" preload="auto">
         <!-- <source src="music_notes/d.mp3" type="audio/mp3"></source>
         <source src="music_notes/d.ogg" type="audio/ogg"></source>
         <source src="music_notes/d.wav" type="audio/wav"></source> -->
 
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/d_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/d_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/d_note.wav" type="audio/wav"></source>  
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/d_note.mp3" type="audio/mp3">
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/d_note.ogg" type="audio/ogg">
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/d_note.wav" type="audio/wav">
       </audio>
-      <audio id="eNotes">
+
+      <audio id="eNotes" preload="auto">
         <!-- <source src="music_notes/e.mp3" type="audio/mp3"></source>
         <source src="music_notes/e.ogg" type="audio/ogg"></source>
         <source src="music_notes/e.wav" type="audio/wav"></source> -->
 
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/e_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/e_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/e_note.wav" type="audio/wav"></source>
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/e_note.mp3" type="audio/mp3">
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/e_note.ogg" type="audio/ogg">
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/e_note.wav" type="audio/wav">
       </audio>  
-      <audio id="gNotes">
+
+      <audio id="gNotes" preload="auto">
         <!-- <source src="music_notes/g.mp3" type="audio/mp3"></source>
         <source src="music_notes/g.ogg" type="audio/ogg"></source>
         <source src="music_notes/g.wav" type="audio/wav"></source> -->
 
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/g_note.mp3" type="audio/mp3"></source>
-        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/g_note.ogg" type="audio/ogg"></source>
-        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/g_note.wav" type="audio/wav"></source>
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/g_note.mp3" type="audio/mp3">
+        <source src="https://github.com/cjbeowulf/MusicMemory/blob/master/music_notes/g_note.ogg" type="audio/ogg">
+        <source src="https://raw.githubusercontent.com/cjbeowulf/MusicMemory/master/music_notes/g_note.wav" type="audio/wav">
       </audio>
 </div>
 

@@ -1,11 +1,11 @@
 {
-  "name": "Exepriment for Crossmodal Correspondence",
+  "name": "Exepriment on the effect of crossmodal perception on sensory-motor responses",
   "version": "1.0.0",
   "description": "Two CCs are contradicted to each other in this game. What will happen if priming participants with different methods?",
   "keywords": [
-    "Crossmodal",
+    "Crossmodal experiment",
     "Node.js",
-    "application"
+    "webapp"
   ],
   "author": {
     "name": "FF",
