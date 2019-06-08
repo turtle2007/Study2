@@ -1,5 +1,52 @@
+const audioCtx = new AudioContext();
+const keys = ['c', 'cis', 'd', 'dis', 'e', 'f', 'fis', 'g', 'gis', 'a', 'ais', 'b'];
+var frequenciesToDraw = [];
+
+let selectedOctaveMin = 4;
+let selectedOctaveMax = 5;
+let selectedWaveform = "sine";
+
+function playSound(freq) {
+    const oscillatorNode = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+
+    oscillatorNode.type = selectedWaveform;
+    oscillatorNode.frequency.value = freq;
+
+    oscillatorNode.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    oscillatorNode.start();
+    gainNode.gain.exponentialRampToValueAtTime(
+        0.0001,
+        audioCtx.currentTime + 1.5
+    );
+}
+
+function handleKeyClick(freq) {
+    playSound(freq);
+}
+
+function getFreq(keyIndex) {
+  return 440 * (2 ** ((keyIndex - 58) / 12));
+}
+
+function getFreqs(min, max) {
+  const result = [];
+  let keyIndex = 12 * min;
+    var freqObj;
+    keys.forEach((key, index) => {
+      keyIndex++;
+      freqObj = Math.floor(getFreq(keyIndex));
+      result.push(freqObj);
+    }); 
+  return result;
+};
+//----------------------------------------------------------------
+
 function warmUpGame(catchParent){
   var rootElement = catchParent;
+  frequenciesToDraw = getFreqs(selectedOctaveMin, selectedOctaveMax);
   clearGameDemo();
   addCountDemo(rootElement);
 }
@@ -89,32 +136,30 @@ function showMovesDemo() {
   clearPlayerDemo();
 }
 
+
 function soundMatchDemo(idName) {
-  var cNotes = document.getElementById("cNotes");
-  var dNotes = document.getElementById("dNotes");
-  var eNotes = document.getElementById("eNotes");
   if (gameCondition === 'con1' || gameCondition === 'con2' || gameCondition === 'con5'){
     switch(idName) {
       case'#c1':
-      notePlayDemo(cNotes);
+      playSound(frequenciesToDraw[2]);
       break;
     case '#c2':
-      notePlayDemo(dNotes);
+      playSound(frequenciesToDraw[7]);
       break;
     case '#c3':
-      notePlayDemo(eNotes);
+      playSound(frequenciesToDraw[11]);
       break;
     };
   }else{
     switch(idName) {
       case'#c3':
-        notePlayDemo(cNotes);
+        playSound(frequenciesToDraw[11]);
         break;
       case '#c2':
-        notePlayDemo(dNotes);
+        playSound(frequenciesToDraw[7]);
         break;
       case '#c1':
-        notePlayDemo(eNotes);
+        playSound(frequenciesToDraw[2]);
         break;
     };
   }

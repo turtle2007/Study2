@@ -195,45 +195,40 @@ function showMoves() {
 }
 
 function soundMatch(idName) {
-  var cNotes = document.getElementById("cNotes");
-  var dNotes = document.getElementById("dNotes");
-  var eNotes = document.getElementById("eNotes");
-  var gNotes = document.getElementById("gNotes");
-  var aNotes = document.getElementById("aNotes");
   if (gameCondition === 'con1' || gameCondition === 'con2' || gameCondition === 'con5'){
     switch(idName) {
       case'c1':
-        notePlay(cNotes);
+        playSound(frequenciesToDraw[0]);
         break;
       case 'c2':
-        notePlay(dNotes);
+        playSound(frequenciesToDraw[2]);
         break;
       case 'c3':
-        notePlay(eNotes);
+        playSound(frequenciesToDraw[4]);
         break;
       case 'c4':
-        notePlay(gNotes);
+        playSound(frequenciesToDraw[7]);
         break;
       case 'c5':
-        notePlay(aNotes);
+        playSound(frequenciesToDraw[9]);
         break;
     };
   }else{
     switch(idName) {
       case'c5':
-        notePlay(cNotes);
+        playSound(frequenciesToDraw[9]);
         break;
       case 'c4':
-        notePlay(dNotes);
+        playSound(frequenciesToDraw[7]);
         break;
       case 'c3':
-        notePlay(eNotes);
+        playSound(frequenciesToDraw[4]);
         break;
       case 'c2':
-        notePlay(gNotes);
+        playSound(frequenciesToDraw[2]);
         break;
       case 'c1':
-        notePlay(aNotes);
+        playSound(frequenciesToDraw[0]);
         break;
     };
   }

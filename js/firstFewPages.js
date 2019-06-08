@@ -1,3 +1,12 @@
+// const audioCtx = new AudioContext();
+// const keys = ['c', 'cis', 'd', 'dis', 'e', 'f', 'fis', 'g', 'gis', 'a', 'ais', 'b'];
+
+// let selectedOctaveMin = 4;
+// let selectedOctaveMax = 5;
+// let selectedWaveform = "sine";
+
+//----------------------------------
+
 var page = 3;
 
 function conditionBtns(arrBtn){
