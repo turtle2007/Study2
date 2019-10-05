@@ -7,4 +7,4 @@ Experimental conditions in this version will show to all participants. In the re
 
 <!-- 2019.6.8 -->
 
-As a demo, the usage of the web audio API are recovered in this version.
+The usage of the web audio API are recovered in this experimental version.
